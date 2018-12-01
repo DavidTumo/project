@@ -13,28 +13,28 @@ function fillMatrix(n,m){
   return matrix
 }
 for(var g=0;g<200;g++){
-  var x = Math.floor(Math.random()*30)
-  var y =Math.floor(Math.random()*30)
+  var x = Math.floor(Math.random()*40)
+  var y =Math.floor(Math.random()*40)
   matrix[y][x]=1
 }
 for(var h=0;h<30;h++){
-  var x = Math.floor(Math.random()*30)
-  var y =Math.floor(Math.random()*30)
+  var x = Math.floor(Math.random()*40)
+  var y =Math.floor(Math.random()*40)
   matrix[y][x]=2
 }
 for(var h=0;h<90;h++){
-  var x = Math.floor(Math.random()*30)
-  var y =Math.floor(Math.random()*30)
+  var x = Math.floor(Math.random()*40)
+  var y =Math.floor(Math.random()*40)
   matrix[y][x]=3
 }
 for(var h=0;h<20;h++){
-  var x = Math.floor(Math.random()*30)
-  var y =Math.floor(Math.random()*30)
+  var x = Math.floor(Math.random()*40)
+  var y =Math.floor(Math.random()*40)
   matrix[y][x]=4
 }
 for(var h=0;h<40;h++){
-  var x = Math.floor(Math.random()*30)
-  var y =Math.floor(Math.random()*30)
+  var x = Math.floor(Math.random()*40)
+  var y =Math.floor(Math.random()*40)
   matrix[y][x]=5
 }
 

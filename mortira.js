@@ -1,8 +1,6 @@
-class Mortira  {
+class Mortira  extends LivingCreature {
     constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.index = index;
+        super(x,y,index);
         this.energy = 20;
         this.directions1 =[
             [this.x - 1, this.y - 1],
@@ -54,8 +52,8 @@ class Mortira  {
             [this.x + 1, this.y + 2]
         ];
     }
-     getNewDirections1(){
-                 this.directions1 =[
+     getNewDirections(){
+                 this.directions =[
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
             [this.x + 1, this.y - 1],
@@ -66,20 +64,9 @@ class Mortira  {
             [this.x + 1, this.y + 1],
          ];
      }
-      chooseCell1(character) {
-        this.getNewDirections1();
-        var found = [];
-         for (var i in this.directions1) {
-            var x = this.directions1[i][0];
-            var y = this.directions1[i][1];
-            if(x>=0 && x<matrix[0].length && y>=0 && y<matrix.length)
-         {
-            if (matrix[y][x] == character) {
-                found.push(this.directions1[i]);
-            }
-        }
-        }
-        return found;
+      chooseCell(character) {
+        this.getNewDirections();
+        return super.chooseCell(character);
     }
     chooseCell2(character) {
         this.getNewDirections2();
@@ -97,7 +84,7 @@ class Mortira  {
         return found;
     }
     mult(){
-        var empty = random(this.chooseCell1(0))
+        var empty = random(this.chooseCell(0))
         if(empty && this.energy>=30){
             var newX = empty[0]
             var newY = empty[1]

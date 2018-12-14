@@ -1,4 +1,5 @@
-class Venom extends LivingCreature {
+var LivingCreature = require("./class.js")
+module.exports = class Venom extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 10;
@@ -90,7 +91,8 @@ class Venom extends LivingCreature {
         return found;
     }
     mult() {
-        var empty = random(this.chooseCell(0))
+        var rand = this.chooseCell(0);
+        var empty = rand[Math.floor((Math.random()*rand.length))];
         if (empty && this.energy >= 25) {
             var newX = empty[0]
             var newY = empty[1]
@@ -100,7 +102,8 @@ class Venom extends LivingCreature {
         }
     }
     move() {
-        var empty = random(this.chooseCell(0))
+        var rand = this.chooseCell(0);
+        var empty = rand[Math.floor((Math.random()*rand.length))];
         this.energy -= 2
         if (empty) {
             var newX = empty[0]
@@ -113,11 +116,12 @@ class Venom extends LivingCreature {
     }
 
     eat() {
-        var food1 = random(this.chooseCell2(1));
-        var food2 = random(this.chooseCell2(2));
-        var food3 = random(this.chooseCell2(3));
-        var food4 = random(this.chooseCell2(4));
-
+        var rand1 = this.chooseCell(1);
+        var food1 = rand1[Math.floor((Math.random()*rand1.length))];
+        var rand2 = this.chooseCell(2);
+        var food2 = rand2[Math.floor((Math.random()*rand2.length))];
+        var rand3 = this.chooseCell(3);
+        var food3 = rand3[Math.floor((Math.random()*rand3.length))];
         if (food1) {
             var newX = food1[0]
             var newY = food1[1]

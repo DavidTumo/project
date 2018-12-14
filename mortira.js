@@ -1,4 +1,5 @@
-class Mortira  extends LivingCreature {
+var LivingCreature = require("./class.js")
+module.exports = class Mortira  extends LivingCreature {
     constructor(x, y, index) {
         super(x,y,index);
         this.energy = 20;
@@ -84,7 +85,8 @@ class Mortira  extends LivingCreature {
         return found;
     }
     mult(){
-        var empty = random(this.chooseCell(0))
+        var rand = this.chooseCell(0);
+        var empty = rand[Math.floor((Math.random()*rand.length))];
         if(empty && this.energy>=30){
             var newX = empty[0]
             var newY = empty[1]
@@ -94,7 +96,8 @@ class Mortira  extends LivingCreature {
         }
     }
     move(){
-        var empty = random(this.chooseCell2(0))
+        var rand = this.chooseCell(0);
+        var empty = rand[Math.floor((Math.random()*rand.length))];
         this.energy-=4
         if(empty){
             var newX = empty[0]
@@ -107,7 +110,8 @@ class Mortira  extends LivingCreature {
     }
 
     eat(){
-        var food = random(this.chooseCell2(4));     
+        var rand = this.chooseCell(3);
+        var food = rand[Math.floor((Math.random()*rand.length))];  
         if(food){
             var newX = food[0]
             var newY = food[1]

@@ -8,7 +8,7 @@ app.use(express.static("."));
 app.get('/', function (req, res) {
     res.redirect('index.html');
 });
-server.listen(3000);
+server.listen(8080);
 
 matrix = [];
 matrix = fillMatrix(40, 40)
@@ -136,3 +136,28 @@ function drawServerayin() {
     io.sockets.emit("matrix", matrix)
 
 }
+var weatherinit = 0
+Weather = "summer"
+function sendWeather() {
+    weatherinit++
+    if (weatherinit == 6) {
+        weatherinit = 1
+    }
+    else if (weatherinit == 5) {
+        Weather = "spring"
+    }
+    else if (weatherinit == 4) {
+        Weather = "winter"
+    }
+    else if (weatherinit == 3) {
+        Weather = "autumn"
+    }
+    else if (weatherinit == 2) {
+        Weather = "summer"
+    }
+
+    io.sockets.emit("weather", Weather)
+}
+
+setInterval(sendWeather, 2000);
+

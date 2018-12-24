@@ -2,7 +2,7 @@ var LivingCreature = require("./class.js")
 module.exports = class Gishatich extends LivingCreature {
     constructor(x,y,index){
         super(x,y,index);
-        this.energy=12;
+        this.energy=11;
     }
     getNewDirections(){
         this.directions = [
@@ -24,12 +24,13 @@ module.exports = class Gishatich extends LivingCreature {
     mult(){
         var rand = this.chooseCell(0);
         var empty = rand[Math.floor((Math.random()*rand.length))];
-        if(empty && this.energy>=15){
+        if(empty && this.energy>=12){
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 3;
             var newgsh = new Gishatich(newX,newY,3);
             gishatichArr.push(newgsh)
+            gishatichCnvac++
         }
     }
     move(){
@@ -57,6 +58,7 @@ module.exports = class Gishatich extends LivingCreature {
             for(var i in xotakerArr){
                 if(xotakerArr[i].x == newX && xotakerArr[i].y == newY ){
                     xotakerArr.splice(i,1)
+                    xotakerKeran++
 
                 }
             }
@@ -72,7 +74,7 @@ module.exports = class Gishatich extends LivingCreature {
         for(var i in gishatichArr){
             if(gishatichArr[i].x == this.x && gishatichArr[i].y == this.y ){
                 gishatichArr.splice(i,1)
-
+                gishatichSatkec++
             }
         }
        }

@@ -24,13 +24,15 @@ module.exports = class Xotaker extends LivingCreature {
     mult(){
         var rand = this.chooseCell(0);
         var empty = rand[Math.floor((Math.random()*rand.length))];
-        if(empty && this.energy>7){
+        if(empty && this.energy>9){
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 2;
             var newxt = new Xotaker(newX,newY,1);
             xotakerArr.push(newxt)
+            xotakerCnvac++
         }
+        
     }
     move(){
         var rand = this.chooseCell(0);
@@ -57,6 +59,7 @@ module.exports = class Xotaker extends LivingCreature {
             for(var i in grassArr){
                 if(grassArr[i].x == newX && grassArr[i].y == newY ){
                     grassArr.splice(i,1)
+                    xotKeran++
 
                 }
             }
@@ -72,7 +75,7 @@ module.exports = class Xotaker extends LivingCreature {
         for(var i in xotakerArr){
             if(xotakerArr[i].x == this.x && xotakerArr[i].y == this.y ){
                 xotakerArr.splice(i,1)
-
+                xotakerSatkec++
             }
         }
        }

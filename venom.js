@@ -99,6 +99,7 @@ module.exports = class Venom extends LivingCreature {
             matrix[newY][newX] = 4;
             var newven = new Venom(newX, newY, 4);
             venomArr.push(newven)
+            venomCnvac++
         }
     }
     move() {
@@ -130,7 +131,7 @@ module.exports = class Venom extends LivingCreature {
             for (var i in grassArr) {
                 if (grassArr[i].x == newX && grassArr[i].y == newY) {
                     grassArr.splice(i, 1)
-
+                    xotKeran++
                 }
             }
 
@@ -146,6 +147,7 @@ module.exports = class Venom extends LivingCreature {
             for (var i in xotakerArr) {
                 if (xotakerArr[i].x == newX && xotakerArr[i].y == newY) {
                     xotakerArr.splice(i, 1)
+                    xotakerKeran++
 
                 }
             }
@@ -162,6 +164,7 @@ module.exports = class Venom extends LivingCreature {
             for (var i in gishatichArr) {
                 if (gishatichArr[i].x == newX && gishatichArr[i].y == newY) {
                     gishatichArr.splice(i, 1)
+                    gishatichKeran++
 
                 }
             }
@@ -178,7 +181,7 @@ module.exports = class Venom extends LivingCreature {
             for (var i in venomArr) {
                 if (venomArr[i].x == this.x && venomArr[i].y == this.y) {
                     venomArr.splice(i, 1)
-
+                    venomSatkec++
                 }
             }
         }

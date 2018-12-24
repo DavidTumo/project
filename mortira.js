@@ -87,18 +87,19 @@ module.exports = class Mortira  extends LivingCreature {
     mult(){
         var rand = this.chooseCell(0);
         var empty = rand[Math.floor((Math.random()*rand.length))];
-        if(empty && this.energy>=30){
+        if(empty && this.energy>=25){
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 5;
             var newmor = new Mortira(newX,newY,5);
             mortiraArr.push(newmor)
+            mortiraCnvac++
         }
     }
     move(){
         var rand = this.chooseCell(0);
         var empty = rand[Math.floor((Math.random()*rand.length))];
-        this.energy-=4
+        this.energy-=2
         if(empty){
             var newX = empty[0]
             var newY = empty[1]
@@ -120,6 +121,7 @@ module.exports = class Mortira  extends LivingCreature {
             for(var i in venomArr){
                 if(venomArr[i].x == newX && venomArr[i].y == newY ){
                     venomArr.splice(i,1)
+                    venomKeran++
 
                 }
             }
@@ -135,7 +137,7 @@ module.exports = class Mortira  extends LivingCreature {
         for(var i in mortiraArr){
             if(mortiraArr[i].x == this.x && mortiraArr[i].y == this.y ){
                 mortiraArr.splice(i,1)
-
+                mortiraSatkec++
             }
         }
        }

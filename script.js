@@ -8,7 +8,6 @@ var side =20;
 function drawWeather(w){
     weather=w
     var p =document.getElementById("seasons")
-    console.log(weather);
     if(weather=="summer"){
        p.innerText="Summer"
     }
